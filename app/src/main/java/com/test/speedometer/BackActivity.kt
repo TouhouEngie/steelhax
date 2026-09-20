@@ -20,9 +20,12 @@ class BackActivity : Activity(), SensorEventListener {
 
     private val dequeSensorData = ArrayDeque<Array<Float>>()
     private val dequeAngleData = ArrayDeque<Float>()
+
     private val poll = 5
     private var increment = 0
     private val ms = 100
+
+    private var highScore = 0.0
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         // x side by side, y up and down, z through...
@@ -114,7 +117,15 @@ class BackActivity : Activity(), SensorEventListener {
     }
 
     fun loadAverageVelocity(): Double {
-        return averageAccel() * (ms / 1000)
+        val velo = averageAccel() * (ms / 1000)
+        if (velo > highScore) {
+            highScore = velo
+        }
+        return velo
+    }
+
+    fun getHighScore(): Double {
+        return highScore;
     }
 }
 
