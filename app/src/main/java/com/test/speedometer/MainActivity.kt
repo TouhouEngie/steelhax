@@ -12,6 +12,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.test.speedometer.ui.theme.SpeedometerTheme
+import com.test.speedometer.BackActivity
+
+/*
+    BackActivity syntax: call BackActivity.loadAverageVelocity() to get your velocity...maybe
+    idk, i haven't tested it yet
+ */
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
